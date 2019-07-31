@@ -17,20 +17,22 @@ const print = (logThis, bool) => {
 print("1a // Write a class called `Person` that has 3 properties: a first name, a last name and a middle name. Create 2 instances of a `Person`.");
 print("Print one of their first names.");
 class Person {
-  constructor (firstName, middleName, lastName) {
+  constructor (firstName, lastName, middleName) {
     this.firstName = firstName;
-    this.middleName = middleName;
     this.lastName = lastName;
+    this.middleName = middleName;
   }
   fullName() {
-    return `${this.firstName} ${this.middleName} ${this.lastName}`;
+    return (this.firstName + (this.middleName ? ` ${this.middleName}` : '') + ` ${this.lastName}`);
   }
 }
 
 let helena = new Person("Helena", "Bonham", "Carter");
 let sofia = new Person("Sofia", "Ford", "Coppola");
+let jack = new Person("Jack", "Pattillo");
 print(helena);
 print(sofia);
+print(jack);
 print(sofia.firstName);
 
 // b
@@ -38,7 +40,8 @@ print("1b // Write a method in `Person` called `fullName` that will return a for
 print("Call this method on both the instances you created in part a.");
 
 print(helena.fullName());
-print(sofia.fullName(), 1);
+print(sofia.fullName());
+print(jack.fullName(), 1);
 //
 
 
@@ -123,11 +126,6 @@ print("5d // Add a method called `toString` that returns a description of the do
 print(spot.toString(), 1);
 //
 
-// There are three common scales that are used to measure temperature: Celsius, Fahrenheit, and Kelvin:
-//
-// C = (F - 32) / 1.8
-// F = 1.8 * C + 32
-// K = C + 273
 
 // 4 //
 // a
@@ -214,19 +212,13 @@ class Vector {
     this.y = y;
   }
   plus = (anotherVector) => {
-    let outputVector = {};
-    outputVector.x = this.x + anotherVector.x;
-    outputVector.y = this.y + anotherVector.y;
-    return (`Vector: {x: ${outputVector.x}, y: ${outputVector.y}}`);
+    return (`Vector: {x: ${this.x + anotherVector.x}, y: ${this.y + anotherVector.y}}`);
   }
   minus = (anotherVector) => {
-    let outputVector = {};
-    outputVector.x = this.x - anotherVector.x;
-    outputVector.y = this.y - anotherVector.y;
-    return (`Vector: {x: ${outputVector.x}, y: ${outputVector.y}}`);
+    return (`Vector: {x: ${this.x - anotherVector.x}, y: ${this.y - anotherVector.y}}`);
   }
   getLength = () => {
-    return ((this.x ** 2 + this.y ** 2) ** (0.5));
+    return (this.x ** 2 + this.y ** 2) ** 0.5;
   }
 }
 

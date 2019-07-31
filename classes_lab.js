@@ -4,10 +4,10 @@
 
 
 // non-question-specific function declarations
-const print = (displayThis, bool) => {
+const print = (logThis, bool) => {
   bool
-    ? console.log(displayThis, "\n")
-    : console.log(displayThis);
+    ? console.log(logThis, "\n")
+    : console.log(logThis);
 }
 
 
@@ -257,6 +257,7 @@ class Vehicle {
 }
 
 let ediths = new Vehicle("Grandma", "blue");
+print(ediths.makeSound());
 print(ediths, 1);
 //
 
@@ -311,6 +312,6 @@ print(mcbike);
 // 8d
 print("8d // Create a new `Car` instance that has a `color` of 'red' and `name` 'Carry McCarface'");
 
-let mccar = new Car("Carry McCarface", "red", "Jalope", "Utter");
+let mccar = new Car("Carry McCarface", "red", "Utter", "Jalope");
 print(mccar, 1);
 //

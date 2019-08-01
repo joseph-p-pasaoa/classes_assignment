@@ -183,7 +183,9 @@ class Movie {
     if (castStr[1]) {
       castStr[castStr.length - 1] = `and ${castStr[castStr.length - 1]}`;
     }
-    castStr = castStr.join(", ");
+    castStr[2]
+      ? castStr = castStr.join(', ')
+      : castStr = castStr.join(' ');
     return `${this.name} came out in ${this.year}. \nA film ${this.genre} starring ${castStr}. \n${this.description}`;
   }
 }
